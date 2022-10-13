@@ -14,6 +14,7 @@ let slideIndex = 0;
 // Funções
 function smoothScroll(e) {
   e.preventDefault();
+
   const href = this.getAttribute("href");
   const offsetTop = document.querySelector(href).offsetTop;
 
@@ -30,11 +31,9 @@ function smoothScroll(e) {
 }
 
 function showSlides() {
-  console.log(slides);
-  let i;
-
-  for (i = 0; i < slides.length; i++) {
+  for (let i = 0; i < slides.length; i++) {
     slides[i].classList.remove("active");
+    dots[i].classList.remove("active");
   }
 
   slideIndex++;
@@ -43,13 +42,8 @@ function showSlides() {
     slideIndex = 1;
   }
 
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace("active", "");
-  }
-
   slides[slideIndex - 1].classList.add("active");
-
-  dots[slideIndex - 1].className += " active";
+  dots[slideIndex - 1].classList.add("active");
 
   setTimeout(showSlides, 3000);
 }

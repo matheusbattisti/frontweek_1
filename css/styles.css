@@ -1,9 +1,11 @@
+/* Geral */
 :root {
   --main-color: #d92123;
   --primary-text-color: #fff;
   --secondary-text-color: #191919;
   --secondary-color: #868686;
   --tertiary-color: #eff3f4;
+  --secondary-bg-color: #5c1011;
 }
 
 * {
@@ -21,18 +23,18 @@ img {
   width: 100%;
 }
 
-i {
-  background-color: var(--main-color);
-  color: var(--primary-text-color);
-  padding: 2rem;
-  font-size: 2.5rem;
-}
-
 input[type="submit"] {
   cursor: pointer;
 }
 
-/* Cabeçalho e Banner */
+i {
+  background-color: var(--main-color);
+  color: var(--primary-text-color);
+  font-size: 2.5rem;
+  padding: 2rem;
+}
+
+/* Cabeçalho e banner */
 #header {
   min-height: 90vh;
   background-image: url("../img/main_banner4.png");
@@ -43,21 +45,20 @@ input[type="submit"] {
   position: relative;
 }
 
+#inner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 #brand {
   background-color: var(--main-color);
   padding: 1rem;
-  margin-right: 0.5rem;
-}
-
-#inner-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 #navbar {
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
   text-transform: uppercase;
   margin-right: 2rem;
 }
@@ -65,7 +66,6 @@ input[type="submit"] {
 #navbar a {
   color: var(--primary-text-color);
   font-weight: bold;
-  padding: 1rem;
 }
 
 .banner.active {
@@ -97,9 +97,9 @@ input[type="submit"] {
   height: 150px;
   background-color: var(--main-color);
   position: absolute;
+  z-index: 1;
   left: 20px;
   top: 40px;
-  z-index: 1;
 }
 
 .dots {
@@ -114,12 +114,9 @@ input[type="submit"] {
   width: 20px;
   height: 20px;
   background-color: var(--secondary-color);
-  cursor: pointer;
 }
 
 .dot.active {
-  width: 20px;
-  height: 20px;
   background-color: var(--main-color);
 }
 
@@ -212,7 +209,6 @@ input[type="submit"] {
 }
 
 #about-text {
-  background-color: var(--main-color);
   background-image: url("../img/pattern.png");
   background-size: cover;
   background-position: center;
@@ -279,12 +275,12 @@ input[type="submit"] {
   padding: 0;
 }
 
-#about-data .data .number {
+.data .number {
   font-size: 4rem;
   font-weight: 900;
 }
 
-#about-data .data .text {
+.data .text {
   text-transform: uppercase;
 }
 
@@ -305,7 +301,7 @@ input[type="submit"] {
   gap: 1rem;
 }
 
-.autor .author-name {
+.author .author-name {
   color: var(--main-color);
   text-transform: uppercase;
   font-size: 1.3rem;
@@ -313,11 +309,11 @@ input[type="submit"] {
   margin-bottom: 1rem;
 }
 
-.autor .author-jog {
+.author .author-job {
   color: var(--secondary-text-color);
 }
 
-.autor img {
+.author img {
   width: 100px;
   height: 100px;
 }
@@ -332,7 +328,7 @@ input[type="submit"] {
   font-size: 3rem;
   text-align: center;
   max-width: 1000px;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
   position: relative;
   z-index: 2;
 }
@@ -409,16 +405,22 @@ input[type="submit"] {
   border: none;
 }
 
-#contact-information input[type="submit"] {
+#contact-information .btn {
   align-self: start;
   border: 2px solid var(--primary-text-color);
   font-size: 1.2rem;
+  transition: 0.4s;
+}
+
+#contact-information .btn:hover {
+  background-color: var(--primary-text-color);
+  color: var(--main-color);
 }
 
 /* Rodapé */
 #footer {
   color: var(--primary-text-color);
-  background-color: #5c1011;
+  background-color: var(--secondary-bg-color);
   display: flex;
   justify-content: space-around;
   padding: 3rem 3rem 5rem;
@@ -500,16 +502,12 @@ input[type="submit"] {
   color: var(--secondary-color);
 }
 
-/* Mobile Navbar */
-#mobile-navbar {
-  display: none;
-}
-
+/* Mobile navbar */
 #menu,
 #close-menu {
-  display: none;
   font-size: 2rem;
   padding: 1rem;
+  display: none;
 }
 
 #close-menu {
@@ -524,12 +522,12 @@ input[type="submit"] {
   left: 100%;
   height: 100%;
   width: 100%;
-  z-index: 5;
   background-color: rgba(0, 0, 0, 0.95);
   display: flex;
   flex-direction: column;
   padding: 4rem 2rem;
   transition: 0.4s;
+  z-index: 5;
 }
 
 #mobile-navbar.menu-active {
@@ -557,7 +555,7 @@ input[type="submit"] {
     font-size: 2rem;
   }
 
-  /* Cabeçalho e Banner */
+  /* navbar */
   #navbar {
     display: none;
   }
@@ -567,10 +565,6 @@ input[type="submit"] {
     display: block;
   }
 
-  #mobile-navbar {
-    display: flex;
-  }
-
   .banner {
     max-width: 100%;
     padding: 4rem 2rem;
@@ -578,6 +572,10 @@ input[type="submit"] {
 
   .banner h2 {
     font-size: 3rem;
+  }
+
+  .banner p {
+    font-size: 1rem;
   }
 
   /* Áreas de atuação */
@@ -610,11 +608,6 @@ input[type="submit"] {
   .about-description i {
     padding: 0;
     min-width: 40px;
-  }
-
-  #about-data .data:first-child,
-  #about-data .data:last-child {
-    border: none;
   }
 
   #about #about-data .data {
@@ -655,13 +648,18 @@ input[type="submit"] {
     flex-direction: column;
   }
 
-  #contact-information input[type="submit"] {
+  #contact-information .btn {
     align-self: auto;
   }
 
   /* Rodapé */
   #footer {
     flex-wrap: wrap;
+  }
+
+  #footer i {
+    font-size: 2rem;
+    padding: 1rem;
   }
 
   .footer-brand {
@@ -683,10 +681,5 @@ input[type="submit"] {
   .contact-info,
   .links-container {
     width: 100%;
-  }
-
-  #footer i {
-    font-size: 2rem;
-    padding: 1rem;
   }
 }
